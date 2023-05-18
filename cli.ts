@@ -1,5 +1,4 @@
 #!/usr/bin/env deno run -A
-import { writeFile, readFile, chmod } from "node:fs/promises";
 import { parse as parseArgs } from "https://deno.land/std/flags/mod.ts";
 import { dedent } from "npm:ts-dedent";
 
@@ -41,14 +40,14 @@ console.info(`Pinning Deno ${version} for denow scripts`);
 const response1 = await fetch(import.meta.resolve("./denow"));
 let text1 = await response1.text();
 text1 = text1.replaceAll(/{{\s*version\s*}}/g, version);
-await writeFile("denow", text1);
+await Deno.writeTextFile("denow", text1);
 // This is rougly equivalent to chmod +x.
-await chmod("denow", 0o755);
+await Deno.chmod("denow", 0o755);
 console.info("Created denow script");
 
 const response2 = await fetch(import.meta.resolve("./denow.bat"));
 const text2 = await response2.text();
-await writeFile("denow.bat", text2);
+await Deno.writeTextFile("denow.bat", text2);
 console.info("Created denow.bat script");
 
 console.info("Make sure to add '.deno' to your .gitignore!");
