@@ -17,7 +17,7 @@ Deno.test("deno-wrapper", async (t) => {
     });
 
     await t.step("./denow eval", async () => {
-      const v = await $`./denow eval 'console.log(Deno.version.deno)'`.text();
+      const v = "" + (await $`./denow eval 'console.log(Deno.version.deno)'`);
       expect(v).toBe("1.30.0");
     });
 
