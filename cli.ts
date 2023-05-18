@@ -36,7 +36,7 @@ if (args.help || args.h) {
 }
 
 const version = args._[0] || Deno.version.deno;
-console.info(`🟦 Pinning Deno ${version} for denow scripts`);
+console.info(`Pinning Deno ${version} for denow scripts`);
 
 const response1 = await fetch(import.meta.resolve("./denow"));
 let text1 = await response1.text();
@@ -44,12 +44,12 @@ text1 = text1.replaceAll(/{{\s*version\s*}}/g, version);
 await writeFile("denow", text1);
 // This is rougly equivalent to chmod +x.
 await chmod("denow", 0o755);
-console.info("🟩 Created denow script");
+console.info("Created denow script");
 
 const response2 = await fetch(import.meta.resolve("./denow.bat"));
 const text2 = await response2.text();
 await writeFile("denow.bat", text2);
-console.info("🟩 Created denow.bat script");
+console.info("Created denow.bat script");
 
-console.info("🟨 Make sure to add '.deno' to your .gitignore!");
-console.info("🟦 Run denow like './denow run -A my-script.ts'");
+console.info("Make sure to add '.deno' to your .gitignore!");
+console.info("Run denow like './denow run -A my-script.ts'");
