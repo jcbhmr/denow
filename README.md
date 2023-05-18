@@ -52,8 +52,8 @@ Just use `./denow` as though it were the true `deno` binary! Anyone who clones
 your repo won't need to install deno themselves; the `./denow` will auto-install
 a local copy into the `.deno` folder.
 
-⚠️ Make sure you add `.deno` to your `.gitignore`! That's where the
-`DENO_INSTALL` is set.
+⚠️ Make sure you add `.deno` to your `.gitignore`! That's where `deno` will be
+installed to by the wrapper.
 
 ```sh
 ./denow --help
