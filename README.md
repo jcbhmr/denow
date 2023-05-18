@@ -20,14 +20,14 @@
 Find your existing Deno project, then run:
 
 ```sh
-deno run -A https://cdn.jsdelivr.net/gh/jcbhmr/deno-wrapper/cli.ts
+deno run -A https://deno.land/x/deno_wrapper/cli.ts
 ```
 
 You can add a `vN.N.N` argument to download a specific version. By default we
 use the `Deno.version.deno` version.
 
 ```sh
-deno run -A https://cdn.jsdelivr.net/gh/jcbhmr/deno-wrapper/cli.ts 1.30.0
+deno run -A https://deno.land/x/deno_wrapper/cli.ts 1.30.0
 ```
 
 This CLI will create the wrapper scripts as `./denow` for POSIX and
@@ -37,7 +37,7 @@ You can also use `deno install` to install `deno-wrapper` globally. Then, you
 can just use the `deno-wrapper` CLI in whatever project you want.
 
 ```sh
-deno install -A https://cdn.jsdelivr.net/gh/jcbhmr/deno-wrapper/cli.ts
+deno install -A https://deno.land/x/deno_wrapper/cli.ts
 deno-wrapper 1.30.0
 ```
 
