@@ -4,8 +4,6 @@
 
 <div align="center">
 
-<!-- TODO: Replace picture with something better -->
-
 ![](https://user-images.githubusercontent.com/61068799/238832067-0b3bcb1f-e52e-4fdf-b037-c8001f6e00c2.png)
 
 </div>
@@ -22,14 +20,14 @@
 Find your existing Deno project, then run:
 
 ```sh
-deno run -A https://cdn.jsdelivr.net/gh/chibat/deno-wrapper/cli.ts
+deno run -A https://cdn.jsdelivr.net/gh/jcbhmr/deno-wrapper/cli.ts
 ```
 
 You can add a `vN.N.N` argument to download a specific version. By default we
 use the `Deno.version.deno` version.
 
 ```sh
-deno run -A https://cdn.jsdelivr.net/gh/chibat/deno-wrapper/cli.ts 1.30.0
+deno run -A https://cdn.jsdelivr.net/gh/jcbhmr/deno-wrapper/cli.ts 1.30.0
 ```
 
 This CLI will create the wrapper scripts as `./denow` for POSIX and
@@ -39,7 +37,7 @@ You can also use `deno install` to install `deno-wrapper` globally. Then, you
 can just use the `deno-wrapper` CLI in whatever project you want.
 
 ```sh
-deno install -A https://cdn.jsdelivr.net/gh/chibat/deno-wrapper/cli.ts
+deno install -A https://cdn.jsdelivr.net/gh/jcbhmr/deno-wrapper/cli.ts
 deno-wrapper 1.30.0
 ```
 
