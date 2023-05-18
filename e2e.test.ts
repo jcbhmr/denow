@@ -17,8 +17,7 @@ Deno.test("deno-wrapper", async (t) => {
     });
 
     await t.step("./denow eval", async () => {
-      const bin = Deno.build.os === "windows" ? "./denow.bat" : "./denow";
-      const v = await $`${bin} eval 'console.log(Deno.version.deno)'`.text();
+      const v = await $`./denow eval 'console.log(Deno.version.deno)'`.text();
       expect(v).toBe("1.30.0");
     });
 
