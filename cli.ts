@@ -1,4 +1,5 @@
 #!/usr/bin/env deno run -A
+import $ from "https://deno.land/x/dax/mod.ts";
 import { parse as parseArgs } from "https://deno.land/std/flags/mod.ts";
 import { dedent } from "npm:ts-dedent";
 
@@ -41,8 +42,15 @@ const response1 = await fetch(import.meta.resolve("./denow"));
 let text1 = await response1.text();
 text1 = text1.replaceAll(/{{\s*version\s*}}/g, version);
 await Deno.writeTextFile("denow", text1);
-// This is rougly equivalent to chmod +x.
-await Deno.chmod("denow", 0o755);
+if (Deno.build.os === "windows") {
+  try {
+    await $`git update-index --chmod +x script.sh`;
+  } catch {
+    // TODO: Add warning message
+  }
+} else {
+  await Deno.chmod("denow", 0o755);
+}
 console.info("Created denow script");
 
 const response2 = await fetch(import.meta.resolve("./denow.bat"));
