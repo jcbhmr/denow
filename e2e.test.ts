@@ -1,4 +1,4 @@
-import $ from "https://deno.land/x/dax/mod.ts";
+import { $ } from "https://deno.land/x/zx_deno/mod.mjs";
 import { expect } from "https://deno.land/x/expect/mod.ts";
 import { exists } from "https://deno.land/std/fs/mod.ts";
 
