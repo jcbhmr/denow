@@ -1,6 +1,6 @@
 # Deno wrapper
 
-🐘 Like `./gradlew`, but for [Deno]
+🦕 Like `./gradlew`, but for [Deno]
 
 <div align="center">
 
