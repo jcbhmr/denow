@@ -105,6 +105,9 @@ actual version that the user wants (like v1.30.0 or whatever). We use GitHub
 Actions to test the `denow` script (and the `denow.bat` script) on Ubuntu,
 macOS, and Windows.
 
+Make sure you check the Webhooks tab after each release to make sure that Deno
+actually recieved the payload from the Release event!
+
 <!-- prettier-ignore-start -->
 [Deno]: https://deno.com/runtime
 [github will even block files larger than 100mb]: https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github
