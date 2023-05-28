@@ -100,10 +100,10 @@ systems want to deal with. [GitHub will even block files larger than 100MB]!
 The main `denow` script is written in POSIX shell code. That means things like
 `if [[ $hello == world ]]` are off the table. Only POSIX-compatible things are
 allowed. The `cli.ts` file is the `deno-wrapper` CLI script that replaces the
-`{{version}}` CookieCutter-like variable in `deno` with the actual version that
-the user wants (when they run the `deno-wrapper` CLI they pin the version). We
-use GitHub Actions to test the `denow` script (and the `denow.bat` script) on
-Ubuntu, macOS, and Windows.
+`{{version}}` CookieCutter-like variable in `denow` and `denow.bat` with the
+actual version that the user wants (like v1.30.0 or whatever). We use GitHub
+Actions to test the `denow` script (and the `denow.bat` script) on Ubuntu,
+macOS, and Windows.
 
 <!-- prettier-ignore-start -->
 [Deno]: https://deno.com/runtime
