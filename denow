@@ -26,4 +26,4 @@ fi
 export DENO_INSTALL=.deno
 export PATH="$DENO_INSTALL/bin:$PATH"
 
-exec .deno/bin/deno "$@"
+exec deno "$@"
