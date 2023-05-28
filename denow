@@ -1,7 +1,7 @@
 #!/bin/sh
-# https://github.com/chibat/deno-wrapper
-# Copyright (c) 2023 Tomofumi Chiba
+# https://github.com/jcbhmr/deno_wrapper
 # MIT License
+# Copyright (c) 2023 Jacob Hummer
 set -e
 
 # https://manpages.ubuntu.com/manpages/kinetic/en/man1/chronic.1.html
