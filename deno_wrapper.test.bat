@@ -1,5 +1,3 @@
-@echo off
-
 set "owd=%CD%"
 set "twd=%TEMP%\%RANDOM%"
 mkdir "%twd%"
