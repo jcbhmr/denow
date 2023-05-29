@@ -1,6 +1,6 @@
 # Deno wrapper
 
-🦕 Like `./gradlew`, but for [Deno]
+🦕 Like [`./gradlew`], but for [Deno]
 
 <div align="center">
 
@@ -21,7 +21,8 @@ Windows support!
 ![curl](https://img.shields.io/static/v1?style=for-the-badge&message=curl&color=073551&logo=curl&logoColor=FFFFFF&label=)
 ![sh](https://img.shields.io/static/v1?style=for-the-badge&message=sh&color=4EAA25&logo=GNU+Bash&logoColor=FFFFFF&label=)
 
-Find your existing Deno project, then run `install.sh`:
+Find your existing Deno project, then run `install.sh`. If you're using Windows,
+you can use [Git Bash] to emulate a POSIX shell. 👍
 
 ```sh
 curl -fsSL https://deno.land/x/deno_wrapper/deno_wrapper.sh | sh
@@ -65,6 +66,8 @@ invoking and change it manually.
 
 ### Why?
 
+💡 Inspired by [The Gradle Wrapper]
+
 Sometimes (not often, but sometimes), you want to have an auto-install wrapper
 around a project-critical binary. In a nutshell you gain the following benefits:
 
@@ -99,4 +102,6 @@ actually recieved the payload from the Release event!
 [Deno]: https://deno.com/runtime
 [github will even block files larger than 100mb]: https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github
 [Git Bash]: https://gitforwindows.org/
+[`./gradlew`]: https://github.com/gradle/gradle/blob/master/gradlew
+[The Gradle Wrapper]: https://docs.gradle.org/current/userguide/gradle_wrapper.html
 <!-- prettier-ignore-end -->

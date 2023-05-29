@@ -17,6 +17,9 @@ denow=$(cat <<'EOF'
 # MIT License
 # Copyright (c) 2023 Jacob Hummer
 set -e
+# https://stackoverflow.com/a/29835459
+script_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd -P)
+deno_dir="$script_dir/.deno"
 
 # https://manpages.ubuntu.com/manpages/kinetic/en/man1/chronic.1.html
 chronic() (
@@ -30,14 +33,14 @@ chronic() (
   return "$exit_code"
 )
 
-if [ ! -d .deno ]; then
+if [ ! -d "$deno_dir" ]; then
   # https://github.com/denoland/deno_install#readme
-  export DENO_INSTALL=.deno
+  export DENO_INSTALL=$deno_dir
   curl -fsSL https://deno.land/x/install/install.sh | chronic sh -s "v{{pinned}}"
 fi
 
 # https://github.com/denoland/deno_install/blob/master/install.sh#L53
-export DENO_INSTALL=.deno
+export DENO_INSTALL=$deno_dir
 export PATH="$DENO_INSTALL/bin:$PATH"
 
 exec deno "$@"
