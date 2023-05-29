@@ -17,7 +17,9 @@
 
 ![Deno](https://img.shields.io/static/v1?style=for-the-badge&message=Deno&color=000000&logo=Deno&logoColor=FFFFFF&label=)
 
-Find your existing Deno project, then run:
+Find your existing Deno project, then run this command. You can run this on
+Linux, macOS, or Windows. Just make sure you have [Git Bash] installed on
+Windows! 😊
 
 ```sh
 curl -fsSL https://deno.land/x/deno_wrapper/deno_wrapper.sh | sh
@@ -31,7 +33,8 @@ curl -fsSL https://deno.land/x/deno_wrapper/deno_wrapper.sh | sh -s 1.30.0
 ```
 
 This CLI will create the wrapper scripts as `./denow` for POSIX and
-`./denow.bat` for Windows.
+`./denow.bat` for Windows. ⚠️ The windows script is a convenience wrapper that
+delegates to the POSIX shell script using [Git Bash] as the shell.
 
 ## Usage
 
@@ -100,4 +103,5 @@ actually recieved the payload from the Release event!
 <!-- prettier-ignore-start -->
 [Deno]: https://deno.com/runtime
 [github will even block files larger than 100mb]: https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github
+[Git Bash]: https://gitforwindows.org/
 <!-- prettier-ignore-end -->
