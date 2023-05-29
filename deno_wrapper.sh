@@ -23,7 +23,14 @@ EXAMPLE:
 [ "$1" = --help ] && echo "$help" && exit
 
 if [ -z "$1" ]; then
-  pinned=$(deno eval 'console.log(Deno.version.deno)')
+  if command -v deno >/dev/null; then
+    pinned=$(deno eval 'console.log(Deno.version.deno)')
+  elif command -v jq >/dev/null; then
+    pinned=$(curl -fsSL https://api.github.com/repos/denoland/deno/releases/latest | jq -r '.tag_name')
+  else
+    # Updated 2023-05-28
+    pinned=1.34.0
+  fi
 else
   pinned=$1
 fi
