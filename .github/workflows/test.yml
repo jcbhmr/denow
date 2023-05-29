@@ -4,15 +4,13 @@ on:
     branches: [main]
     paths:
       - "*.sh"
-      - denow
-      - denow.bat
+      - "*.ps1"
       - .github/workflows/test.yml
   pull_request:
     branches: [main]
     paths:
       - "*.sh"
-      - denow
-      - denow.bat
+      - "*.ps1"
       - .github/workflows/test.yml
 concurrency:
   group: test-${{ github.ref }}
@@ -21,14 +19,14 @@ jobs:
   test:
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
+        os: [ubuntu-latest, macos-latest]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
-      # Doesn't work on Windows
-      - if: runner.os != 'Windows'
-        uses: ludeeus/action-shellcheck@master
-      - if: runner.os != 'Windows'
-        run: ./deno_wrapper.test.sh
-      - if: runner.os == 'Windows'
-        run: ./deno_wrapper.test.bat
+      - uses: ludeeus/action-shellcheck@master
+      - run: ./deno_wrapper.test.sh
+  test-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: ./deno_wrapper.test.ps1
