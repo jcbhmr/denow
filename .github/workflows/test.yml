@@ -4,15 +4,13 @@ on:
     branches: [main]
     paths:
       - "*.sh"
-      - denow
-      - denow.bat
+      - "*.ps1"
       - .github/workflows/test.yml
   pull_request:
     branches: [main]
     paths:
       - "*.sh"
-      - denow
-      - denow.bat
+      - "*.ps1"
       - .github/workflows/test.yml
 concurrency:
   group: test-${{ github.ref }}
