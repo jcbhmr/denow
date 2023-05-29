@@ -31,9 +31,9 @@ chronic() (
 )
 
 if [ ! -d .deno ]; then
-    # https://github.com/denoland/deno_install#readme
-    export DENO_INSTALL=.deno
-    curl -fsSL https://deno.land/x/install/install.sh | chronic sh -s "v{{pinned}}"
+  # https://github.com/denoland/deno_install#readme
+  export DENO_INSTALL=.deno
+  curl -fsSL https://deno.land/x/install/install.sh | chronic sh -s "v{{pinned}}"
 fi
 
 # https://github.com/denoland/deno_install/blob/master/install.sh#L53
