@@ -1,11 +1,11 @@
-# Deno wrapper v2.0.0
+# Deno wrapper v2.1.0
 # https://github.com/jcbhmr/deno_wrapper
 # MIT License
 # Copyright (c) 2023 Jacob Hummer
 $ErrorActionPreference = 'Stop'
 
 # Make sure to keep this in sync with deno_wrapper.sh!
-$version = "2.0.0"
+$version = "2.1.0"
 $help = @"
 Deno wrapper v$version
 🦕 Like ./gradlew, but for Deno
