@@ -11,5 +11,5 @@ cd "$twd"
 [[ -f denow.bat ]] || exit 1
 
 v=$(./denow eval 'console.log(Deno.version.deno)')
-[[ $v == '1.30.0' ]] || exit 1
+[[ $v == 1.30.0 ]] || exit 1
 [[ -d ".deno" ]] || exit 1
