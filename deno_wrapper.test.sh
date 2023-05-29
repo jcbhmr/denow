@@ -6,7 +6,7 @@ twd=$(mktemp -d)
 trap 'rm -rf "$twd"' SIGINT SIGTERM ERR EXIT
 cd "$twd"
 
-<"$owd/deno_wrapper" sh -s 1.30.0
+<"$owd/deno_wrapper.sh" sh -s 1.30.0
 [[ -f denow ]] || exit 1
 [[ -f denow.bat ]] || exit 1
 
