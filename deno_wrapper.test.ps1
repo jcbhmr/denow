@@ -18,5 +18,3 @@ if (-not (Test-Path "denow.bat")) { exit 1 }
 $v = (./denow eval 'console.log(Deno.version.deno)').Trim()
 if ($v -ne "1.30.0") { exit 1 }
 if (-not (Test-Path ".deno")) { exit 1 }
-
-Unregister-Event -SourceIdentifier "Cleanup"
