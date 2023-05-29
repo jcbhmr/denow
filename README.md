@@ -17,12 +17,14 @@
 
 ![Deno](https://img.shields.io/static/v1?style=for-the-badge&message=Deno&color=000000&logo=Deno&logoColor=FFFFFF&label=)
 
-Find your existing Deno project, then run this command. You can run this on
-Linux, macOS, or Windows. Just make sure you have [Git Bash] installed on
-Windows! 😊
+Find your existing Deno project, then run one of these commands:
 
 ```sh
 curl -fsSL https://deno.land/x/deno_wrapper/deno_wrapper.sh | sh
+```
+
+```ps1
+irm https://deno.land/x/deno_wrapper/deno_wrapper.ps1 | iex
 ```
 
 You can add a `vN.N.N` argument to download a specific version. By default we
@@ -30,6 +32,13 @@ use the `Deno.version.deno` version.
 
 ```sh
 curl -fsSL https://deno.land/x/deno_wrapper/deno_wrapper.sh | sh -s 1.30.0
+```
+
+⚠️ For PowerShell, you'll need to use a named variable `$v` since `iex` doesn't
+accept extra CLI arguments.
+
+```ps1
+$v="1.30.0"; irm https://deno.land/x/deno_wrapper/deno_wrapper.ps1 | iex
 ```
 
 This CLI will create the wrapper scripts as `./denow` for POSIX and
