@@ -1,5 +1,12 @@
+# https://devblogs.microsoft.com/powershell-community/borrowing-a-built-in-powershell-command-to-create-a-temporary-folder/
+Function New-TemporaryFolder {
+  # Make a new folder based upon a TempFileName
+  $T="$($Env:temp)\tmp$([convert]::tostring((get-random 65535),16).padleft(4,'0')).tmp"
+  New-Item -ItemType Directory -Path $T
+}
+
 $owd = $PWD.Path
-$twd = New-TemporaryFile -Directory
+$twd = New-TemporaryFolder
 $null = Register-ObjectEvent -InputObject $twd -EventName Dispose -Action { Remove-Item -LiteralPath $twd.FullName -Recurse -Force } -SourceIdentifier "Cleanup"
 
 Set-Location -Path $twd.FullName
