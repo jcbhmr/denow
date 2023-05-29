@@ -68,7 +68,6 @@ export PATH="$DENO_INSTALL/bin:$PATH"
 exec deno "$@"
 EOF
 chmod +x denow
-[ -d .git ] && git update-index --chmod +x denow
 
 cat <<'EOF' | sed "s/{{version}}/$version/" | sed "s/{{pinned}}/$pinned/" > denow.bat
 @echo off
