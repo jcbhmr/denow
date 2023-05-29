@@ -4,7 +4,7 @@ $null = Register-ObjectEvent -InputObject $twd -EventName Dispose -Action { Remo
 
 Set-Location -Path $twd.FullName
 
-Invoke-Expression "$(Get-Content "$owd/deno_wrapper.sh" -Raw)" -ArgumentList "1.30.0"
+Invoke-Expression "$(Get-Content "$owd/deno_wrapper.ps1" -Raw)" -ArgumentList "1.30.0"
 if (-not (Test-Path "denow") -or -not (Test-Path "denow.bat")) { exit 1 }
 
 $v = (./denow eval 'console.log(Deno.version.deno)').Trim()
