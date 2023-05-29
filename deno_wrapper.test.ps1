@@ -10,7 +10,8 @@ $twd = New-TemporaryFolder
 
 Set-Location -Path $twd.FullName
 
-Get-Content "$owd/deno_wrapper.ps1" -Raw | Invoke-Expression -ArgumentList "1.30.0"
+$v = "1.30.0"
+Get-Content "$owd/deno_wrapper.ps1" -Raw | Invoke-Expression
 if (-not (Test-Path "denow")) { exit 1 }
 if (-not (Test-Path "denow.bat")) { exit 1 }
 

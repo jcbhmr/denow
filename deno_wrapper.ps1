@@ -2,35 +2,28 @@
 # https://github.com/jcbhmr/deno_wrapper
 # MIT License
 # Copyright (c) 2023 Jacob Hummer
+$ErrorActionPreference = 'Stop'
+
 $version = "2.0.0"
 $help = @"
 Deno wrapper v$version
 🦕 Like ./gradlew, but for Deno
 
-USAGE:
-  deno_wrapper [version]
-
-EXAMPLE:
-  curl -fsSL https://deno.land/x/deno_wrapper/deno_wrapper.sh | sh
-  ./denow eval 'console.log(42)'
-  #=> 42
+irm https://deno.land/x/deno_wrapper/deno_wrapper.ps1 | iex
 "@
 if ($args[0] -eq "--help") {
   Write-Output $help
   Exit
 }
 
-if (-not $args[0]) {
+if (-not $v) {
   if (Get-Command deno -ErrorAction SilentlyContinue) {
     $pinned = deno eval 'console.log(Deno.version.deno)'
-  } elseif (Get-Command jq -ErrorAction SilentlyContinue) {
-    $pinned = (Invoke-RestMethod -Uri "https://api.github.com/repos/denoland/deno/releases/latest" | ConvertFrom-Json).tag_name
   } else {
-    # Updated 2023-05-28
-    $pinned = "1.34.0"
+    $pinned = (Invoke-RestMethod -Uri "https://api.github.com/repos/denoland/deno/releases/latest" | ConvertFrom-Json).tag_name
   }
 } else {
-  $pinned = $args[0]
+  $pinned = $v
 }
 
 $denow = @'
