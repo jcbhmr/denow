@@ -1,3 +1,3 @@
-denow text eol=lf
-denow.bat text eol=crlf
-*.sh eol=lf
+*.sh text eol=lf
+*.bat text eol=crlf
+*.ps1 text eol=crlf
