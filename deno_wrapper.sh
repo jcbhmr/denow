@@ -8,11 +8,9 @@ set -e
 version=2.0.0
 help="
 Deno wrapper v${version}
-
 🦕 Like ./gradlew, but for Deno
 
 USAGE:
-
   deno_wrapper [version]
 
 EXAMPLE:
