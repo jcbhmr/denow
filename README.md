@@ -4,51 +4,39 @@
 
 <div align="center">
 
-![](https://user-images.githubusercontent.com/61068799/238832067-0b3bcb1f-e52e-4fdf-b037-c8001f6e00c2.png)
+![](https://i.imgur.com/Mjwuwyg.png)
 
 </div>
 
 🦕 Downloads a pinned version of Deno \
 📂 Caches Deno installation in the `.deno` folder \
-🌟 Works best when placed at the root of your project as `./denow` \
+🌟 Creates a `./denow` wrapper script that auto-downloads Deno \
 👤 Users don't need to install `deno` globally
+
+❤️ I'd love any Windows experts to add a `install.ps1` and `./denow.*` for
+Windows support!
 
 ## Installation
 
-![Deno](https://img.shields.io/static/v1?style=for-the-badge&message=Deno&color=000000&logo=Deno&logoColor=FFFFFF&label=)
+![curl](https://img.shields.io/static/v1?style=for-the-badge&message=curl&color=073551&logo=curl&logoColor=FFFFFF&label=)
+![sh](https://img.shields.io/static/v1?style=for-the-badge&message=sh&color=4EAA25&logo=GNU+Bash&logoColor=FFFFFF&label=)
 
-Find your existing Deno project, then run one of these commands:
+Find your existing Deno project, then run `install.sh`:
 
 ```sh
 curl -fsSL https://deno.land/x/deno_wrapper/deno_wrapper.sh | sh
 ```
 
-```ps1
-irm https://deno.land/x/deno_wrapper/deno_wrapper.ps1 | iex
-```
-
 You can add a `vN.N.N` argument to download a specific version. By default we
-use the `Deno.version.deno` version.
+use the `Deno.version.deno` version or else the latest Deno release.
 
 ```sh
 curl -fsSL https://deno.land/x/deno_wrapper/deno_wrapper.sh | sh -s 1.30.0
 ```
 
-⚠️ For PowerShell, you'll need to use a named variable `$v` since `iex` doesn't
-accept extra CLI arguments.
-
-```ps1
-$v="1.30.0"; irm https://deno.land/x/deno_wrapper/deno_wrapper.ps1 | iex
-```
-
-This CLI will create the wrapper scripts as `./denow` for POSIX and
-`./denow.bat` for Windows. ⚠️ The windows script is a convenience wrapper that
-delegates to the POSIX shell script using [Git Bash] as the shell.
-
 ## Usage
 
 ![Terminal](https://img.shields.io/static/v1?style=for-the-badge&message=Terminal&color=4D4D4D&logo=Windows+Terminal&logoColor=FFFFFF&label=)
-![Windows](https://img.shields.io/static/v1?style=for-the-badge&message=Windows&color=0078D6&logo=Windows&logoColor=FFFFFF&label=)
 ![Linux](https://img.shields.io/static/v1?style=for-the-badge&message=Linux&color=222222&logo=Linux&logoColor=FCC624&label=)
 ![macOS](https://img.shields.io/static/v1?style=for-the-badge&message=macOS&color=000000&logo=macOS&logoColor=FFFFFF&label=)
 
@@ -71,9 +59,9 @@ installed to by the wrapper.
 
 If you want to update the version of Deno that `./denow` downloads and invokes,
 you can go through the install steps (above) again to pin to a different
-version. Be aware that this will overwrite the `./denow` and `./denow.bat`
-files. You can also inspect the generated `./deno` and `./deno.bat` files to see
-what version of Deno they are invoking and change it manually.
+version. Be aware that this will **overwrite** the `./denow` file. You can also
+inspect the generated `./deno` file to see what version of Deno they are
+invoking and change it manually.
 
 ### Why?
 
@@ -88,8 +76,8 @@ around a project-critical binary. In a nutshell you gain the following benefits:
   Wrapper definition.
 
 For instance, GitHub Actions can be written using Deno, but how do you make sure
-`deno` is available on the GitHub Action runner? You can use `./denow` (or
-`./denow.bat`) as a proxy!
+`deno` is available on the GitHub Action runner? You can use `./denow` as a
+proxy!
 
 ### Why not just download the `deno` binary as `./deno`?
 
@@ -101,10 +89,8 @@ systems want to deal with. [GitHub will even block files larger than 100MB]!
 ![Bash](https://img.shields.io/static/v1?style=for-the-badge&message=Bash&color=4EAA25&logo=GNU+Bash&logoColor=FFFFFF&label=)
 ![sh](https://img.shields.io/static/v1?style=for-the-badge&message=sh&color=4EAA25&logo=GNU+Bash&logoColor=FFFFFF&label=)
 
-The main `denow` script is written in POSIX shell code. That means things like
-`[[ $hello == world ]]` are off the table. Only POSIX-compatible things are
-allowed. The `deno_wrapper.sh` script is also POSIX-compatible since it's
-supposed to be as easy to run as possible.
+Most stuff is in POSIX shell code for max compat with macOS and Linux variants
+that use different `bash`, `ksh`, `fish`, etc. shells.
 
 Make sure you check the Webhooks tab after each release to make sure that Deno
 actually recieved the payload from the Release event!
