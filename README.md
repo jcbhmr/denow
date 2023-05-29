@@ -17,29 +17,24 @@
 
 ![Deno](https://img.shields.io/static/v1?style=for-the-badge&message=Deno&color=000000&logo=Deno&logoColor=FFFFFF&label=)
 
-Find your existing Deno project, then run:
+Find your existing Deno project, then run this command. You can run this on
+Linux, macOS, or Windows. Just make sure you have [Git Bash] installed on
+Windows! 😊
 
 ```sh
-deno run -A https://deno.land/x/deno_wrapper/cli.ts
+curl -fsSL https://deno.land/x/deno_wrapper/deno_wrapper.sh | sh
 ```
 
 You can add a `vN.N.N` argument to download a specific version. By default we
 use the `Deno.version.deno` version.
 
 ```sh
-deno run -A https://deno.land/x/deno_wrapper/cli.ts 1.30.0
+curl -fsSL https://deno.land/x/deno_wrapper/deno_wrapper.sh | sh -s 1.30.0
 ```
 
 This CLI will create the wrapper scripts as `./denow` for POSIX and
-`./denow.bat` for Windows.
-
-You can also use `deno install` to install `deno-wrapper` globally. Then, you
-can just use the `deno-wrapper` CLI in whatever project you want.
-
-```sh
-deno install -A https://deno.land/x/deno_wrapper/cli.ts
-deno-wrapper 1.30.0
-```
+`./denow.bat` for Windows. ⚠️ The windows script is a convenience wrapper that
+delegates to the POSIX shell script using [Git Bash] as the shell.
 
 ## Usage
 
@@ -94,16 +89,13 @@ systems want to deal with. [GitHub will even block files larger than 100MB]!
 
 ## Development
 
-![TypeScript](https://img.shields.io/static/v1?style=for-the-badge&message=TypeScript&color=3178C6&logo=TypeScript&logoColor=FFFFFF&label=)
+![Bash](https://img.shields.io/static/v1?style=for-the-badge&message=Bash&color=4EAA25&logo=GNU+Bash&logoColor=FFFFFF&label=)
 ![sh](https://img.shields.io/static/v1?style=for-the-badge&message=sh&color=4EAA25&logo=GNU+Bash&logoColor=FFFFFF&label=)
 
 The main `denow` script is written in POSIX shell code. That means things like
-`if [[ $hello == world ]]` are off the table. Only POSIX-compatible things are
-allowed. The `cli.ts` file is the `deno-wrapper` CLI script that replaces the
-`{{version}}` CookieCutter-like variable in `denow` and `denow.bat` with the
-actual version that the user wants (like v1.30.0 or whatever). We use GitHub
-Actions to test the `denow` script (and the `denow.bat` script) on Ubuntu,
-macOS, and Windows.
+`[[ $hello == world ]]` are off the table. Only POSIX-compatible things are
+allowed. The `deno_wrapper.sh` script is also POSIX-compatible since it's
+supposed to be as easy to run as possible.
 
 Make sure you check the Webhooks tab after each release to make sure that Deno
 actually recieved the payload from the Release event!
@@ -111,4 +103,5 @@ actually recieved the payload from the Release event!
 <!-- prettier-ignore-start -->
 [Deno]: https://deno.com/runtime
 [github will even block files larger than 100mb]: https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github
+[Git Bash]: https://gitforwindows.org/
 <!-- prettier-ignore-end -->
