@@ -67,6 +67,7 @@ $denow_bat = @'
 : https://github.com/jcbhmr/deno_wrapper
 : MIT License
 : Copyright (c) 2023 Jacob Hummer
+: TODO: Make this use PowerShell iex instead of just Git Bash
 "%PROGRAMFILES%\Git\bin\sh.exe" denow %*
 '@
 $denow_bat = $denow_bat -replace "{{version}}", $version -replace "{{pinned}}", $pinned
