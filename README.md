@@ -101,7 +101,7 @@ actually recieved the payload from the Release event!
 ```sh
 WEBHOOK:
 Payload URL: https://api.deno.land/webhook/gh/deno_wrapper
-Select individual events: "Branch of tag creation"
+Select individual events: "Branch or tag creation"
 ```
 
 <!-- prettier-ignore-start -->
