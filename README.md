@@ -98,6 +98,12 @@ that use different `bash`, `ksh`, `fish`, etc. shells.
 Make sure you check the Webhooks tab after each release to make sure that Deno
 actually recieved the payload from the Release event!
 
+```sh
+WEBHOOK:
+Payload URL: https://api.deno.land/webhook/gh/deno_wrapper
+Select individual events: "Branch of tag creation"
+```
+
 <!-- prettier-ignore-start -->
 [Deno]: https://deno.com/runtime
 [github will even block files larger than 100mb]: https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github
