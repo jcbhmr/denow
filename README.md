@@ -25,14 +25,14 @@ Find your existing Deno project, then run `install.sh`. If you're using Windows,
 you can use [Git Bash] to emulate a POSIX shell. 👍
 
 ```sh
-curl -fsSL https://deno.land/x/deno_wrapper/deno_wrapper.sh | sh
+curl -fsSL https://deno.land/x/deno_wrapper/install.sh | sh
 ```
 
 You can add a `vN.N.N` argument to download a specific version. By default we
 use the `Deno.version.deno` version or else the latest Deno release.
 
 ```sh
-curl -fsSL https://deno.land/x/deno_wrapper/deno_wrapper.sh | sh -s 1.30.0
+curl -fsSL https://deno.land/x/deno_wrapper/install.sh | sh -s 1.30.0
 ```
 
 ## Usage
