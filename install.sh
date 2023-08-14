@@ -1,10 +1,10 @@
 #!/bin/sh
-# Deno wrapper v3.0.0
+# Deno wrapper v3.1.2
 # https://github.com/jcbhmr/deno_wrapper
 # MIT License
 # Copyright (c) 2023 Jacob Hummer
 set -e
-version=3.0.0
+version='3.1.2'
 help="Deno wrapper v${version}
 🦕 Like ./gradlew, but for Deno
 
@@ -59,7 +59,6 @@ pinned=$1 && if [ -z "$pinned" ]; then
   fi
 fi
 
-# Make sure to keep this in sync with deno_wrapper.ps1!
 echo -n "$denow" | sed "s/{{version}}/$version/" | sed "s/{{pinned}}/$pinned/" > denow
 chmod +x denow
 
