@@ -30,6 +30,6 @@ else
 fi
 
 sed -i "s/\%__DENO_VERSION__\%/$deno_version/g" ./denow.bat
-sed -i "s/\$__DENO_VERSION__/$deno_version/g" ./denow
+sed -i "s/\\\$__DENO_VERSION__/$deno_version/g" ./denow
 
 echo "Created wrapper! You can use ./denow to launch Deno."
