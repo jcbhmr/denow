@@ -12,8 +12,6 @@ if [ "$OS" = "Windows_NT" ]; then
   curl.exe -fsSL "${base_url}denow" -o ./denow
   chmod +x ./denow
 else
-  url='https://github.com/jcbhmr/denow/blob/main/denow'
-  echo "Downloading $url for *nix"
   if command -v curl 2> /dev/null; then
     curl -fsSL "${base_url}denow.bat" -o ./denow.bat
     curl -fsSL "${base_url}denow" -o ./denow
