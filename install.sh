@@ -29,7 +29,7 @@ else
   deno_version=$(get_latest_release denoland/deno | cut -c 2-)
 fi
 
-sed -i .bak "s/%__DENO_VERSION__%/$deno_version/g" ./denow.bat
-sed -i .bak "s/\$__DENO_VERSION__/$deno_version/g" ./denow
+sed -i.bak "s/%__DENO_VERSION__%/$deno_version/g" ./denow.bat
+sed -i.bak "s/\$__DENO_VERSION__/$deno_version/g" ./denow
 
 echo "Created wrapper! You can use ./denow to launch Deno."
