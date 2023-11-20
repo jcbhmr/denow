@@ -31,5 +31,6 @@ fi
 
 sed -i.bak "s/%__DENO_VERSION__%/$deno_version/g" ./denow.bat
 sed -i.bak "s/\$__DENO_VERSION__/$deno_version/g" ./denow
+rm -f ./denow.bat.bak ./denow.bak
 
 echo "Created wrapper! You can use ./denow to launch Deno."
