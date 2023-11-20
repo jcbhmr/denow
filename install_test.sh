@@ -2,7 +2,7 @@
 set -ex
 
 python -m http.server 7000 &
-sleep 3s # let server get ready
+sleep 3 # let server get ready
 
 export DENOW_DL_BASE_URL="http://localhost:7000/"
 
