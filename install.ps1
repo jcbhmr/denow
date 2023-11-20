@@ -1,6 +1,14 @@
+# Set base_url to $DENOW_DL_BASE_URL if it's set, otherwise use the default value
+if ($env:DENOW_DL_BASE_URL) {
+    $base_url = $env:DENOW_DL_BASE_URL
+}
+else {
+    $base_url = "https://deno.land/x/denow/"
+}
+
 # Check if the operating system is Windows
-Invoke-WebRequest -Uri 'https://github.com/jcbhmr/denow/raw/main/denow.bat' -OutFile ./denow.bat
-Invoke-WebRequest -Uri 'https://github.com/jcbhmr/denow/raw/main/denow' -OutFile ./denow
+Invoke-WebRequest -Uri "${base_url}denow.bat" -OutFile ./denow.bat
+Invoke-WebRequest -Uri "${base_url}denow" -OutFile ./denow
 
 # Determine the Deno version
 if ($v) {

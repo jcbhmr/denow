@@ -1,25 +1,30 @@
 #!/bin/sh
 set -e
 
+if [ -n "$DENOW_DL_BASE_URL" ]; then
+  base_url="$DENOW_DL_BASE_URL"
+else
+  base_url='https://deno.land/x/denow/'
+fi
+
 if [ "$OS" = "Windows_NT" ]; then
-  curl.exe -fsSL https://github.com/jcbhmr/denow/blob/main/denow.bat -o ./denow.bat
-  curl.exe -fsSL https://github.com/jcbhmr/denow/blob/main/denow -o ./denow
+  curl.exe -fsSL "${base_url}denow.bat" -o ./denow.bat
+  curl.exe -fsSL "${base_url}denow" -o ./denow
   chmod +x ./denow
 else
   url='https://github.com/jcbhmr/denow/blob/main/denow'
   echo "Downloading $url for *nix"
   if command -v curl 2> /dev/null; then
-    curl -fsSL https://github.com/jcbhmr/denow/blob/main/denow.bat -o ./denow.bat
-    curl -fsSL https://github.com/jcbhmr/denow/blob/main/denow -o ./denow
-    chmod +x ./denow
+    curl -fsSL "${base_url}denow.bat" -o ./denow.bat
+    curl -fsSL "${base_url}denow" -o ./denow
   elif command -v wget 2> /dev/null; then
-    wget https://github.com/jcbhmr/denow/blob/main/denow.bat -O ./denow.bat
-    wget https://github.com/jcbhmr/denow/blob/main/denow -O ./denow
-    chmod +x ./denow
+    wget "${base_url}denow.bat" -O ./denow.bat
+    wget "${base_url}denow" -O ./denow
   else
     echo "Neither 'curl' nor 'wget' found." >&2
     exit 1
   fi
+  chmod +x ./denow
 fi
 
 if [ -n "$1" ]; then
