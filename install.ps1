@@ -18,6 +18,7 @@ if ($v) {
   $deno_version = "${v}"
 } else {
   $deno_version = (Invoke-RestMethod -Uri "https://api.github.com/repos/denoland/deno/releases/latest").tag_name
+  $deno_version = $deno_version.Substring(1)
 }
 
 # Update the script with the Deno version

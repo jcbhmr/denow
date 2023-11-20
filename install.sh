@@ -29,7 +29,7 @@ chmod +x ./denow
 if [ -n "$1" ]; then
   deno_version="$1"
 elif command -v grep 2> /dev/null; then
-  deno_version=$(get_latest_release denoland/deno)
+  deno_version=$(get_latest_release denoland/deno | cut -c 2-)
 else
   echo "Unable to fetch latest version" >&2
   exit 1
