@@ -7,7 +7,7 @@ sleep 3s # let server get ready
 export DENOW_DL_BASE_URL="http://localhost:7000/"
 
 if [[ $OS == Windows_NT ]]; then
-  powershell -Command "irm ${DENOW_DL_BASE_URL}install.ps1 | iex"
+  pwsh -Command "irm ${DENOW_DL_BASE_URL}install.ps1 | iex"
 fi
 
 curl -fsSL ${DENOW_DL_BASE_URL}install.sh | sh

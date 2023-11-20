@@ -24,7 +24,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: shellcheck denow install.sh
-  test-nix:
+  test-install:
     strategy:
       fail-fast: false
       matrix:

@@ -1,3 +1,6 @@
+#!/usr/bin/env pwsh
+$ErrorActionPreference = 'Stop'
+
 # Set base_url to $DENOW_DL_BASE_URL if it's set, otherwise use the default value
 if ($env:DENOW_DL_BASE_URL) {
     $base_url = $env:DENOW_DL_BASE_URL

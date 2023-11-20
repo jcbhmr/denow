@@ -29,7 +29,7 @@ if [ -n "$1" ]; then
   deno_version="$1"
 elif command -v grep 2> /dev/null; then
   # https://gist.github.com/lukechilds/a83e1d7127b78fef38c2914c4ececc3c
-  deno_version=$(curl --silent "https://api.github.com/repos/denoland/deno/releases/latest" | grep -Po "(?<=\"tag_name\": \").*(?=\")")
+  deno_version=$(curl --silent "https://api.github.com/repos/denoland/deno/releases/latest" | grep -Po "(?<=\"tag_name\": \"v).*(?=\")")
 else
   echo "Unable to fetch latest version" >&2
   exit 1
