@@ -14,7 +14,7 @@ get_latest_release() {
     sed -E 's/.*"([^"]+)".*/\1/'                                    # Pluck JSON value
 }
 
-if command -v curl &> /dev/null; then
+if command -v curl > /dev/null 2>&1; then
   curl -fsSL "${base_url}denow.bat" -o ./denow.bat
   curl -fsSL "${base_url}denow" -o ./denow
 else
@@ -29,7 +29,7 @@ else
   deno_version=$(get_latest_release denoland/deno | cut -c 2-)
 fi
 
-sed -i "s/%__DENO_VERSION__%/$deno_version/g" ./denow.bat
+sed -i "s/\%__DENO_VERSION__\%/$deno_version/g" ./denow.bat
 sed -i "s/\$__DENO_VERSION__/$deno_version/g" ./denow
 
 echo "Created wrapper! You can use ./denow to launch Deno."
