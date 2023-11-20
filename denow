@@ -1,7 +1,6 @@
 #!/bin/sh
 set -e
 deno_version="$__DENO_VERSION__"
-# https://stackoverflow.com/questions/29832037/how-to-get-script-directory-in-posix-sh
 dir=$(CDPATH='' cd -- "$(dirname -- "$0")" && pwd)
 if [ ! -d "$dir/.deno" ]; then
   if ! o=$(curl -fsSL https://deno.land/install.sh | DENO_INSTALL="$dir/.deno" sh -s "v$deno_version" 2>&1); then
