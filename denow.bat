@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 
-set "deno_version=%DENO_VERSION%"
+set "deno_version=%__DENO_VERSION__%"
 
 :: Get the script directory
 set "dir=%~dp0"

@@ -10,7 +10,7 @@ if ($v) {
 }
 
 # Update the script with the Deno version
-(Get-Content ./denow.bat) -replace '%DENO_VERSION%', "$deno_version" | Out-File -Encoding ASCII ./denow.bat
-(Get-Content ./denow) -replace '$DENO_VERSION', "$deno_version" | Out-File -Encoding ASCII ./denow
+(Get-Content ./denow.bat) -replace '%__DENO_VERSION__%', "$deno_version" | Out-File -Encoding ASCII ./denow.bat
+(Get-Content ./denow) -replace '$__DENO_VERSION__', "$deno_version" | Out-File -Encoding ASCII ./denow
 
 Write-Host "Created wrapper! You can use ./denow to launch Deno."

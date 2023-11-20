@@ -33,11 +33,11 @@ else
 fi
 
 if [ "$OS" = "Windows_NT" ]; then
-  powershell -Command "(gc ./denow.bat) -replace '%DENO_VERSION%', '$deno_version' | Out-File -encoding ASCII ./denow.bat"
-  powershell -Command "(gc ./denow.bat) -replace '\$DENO_VERSION', '$deno_version' | Out-File -encoding ASCII ./denow"
+  powershell -Command "(gc ./denow.bat) -replace '%__DENO_VERSION__%', '$deno_version' | Out-File -encoding ASCII ./denow.bat"
+  powershell -Command "(gc ./denow.bat) -replace '\$__DENO_VERSION__', '$deno_version' | Out-File -encoding ASCII ./denow"
 else
-  sed -i "s/%DENO_VERSION%/$deno_version/g" ./denow.bat
-  sed -i "s/\$DENO_VERSION/$deno_version/g" ./denow
+  sed -i "s/%__DENO_VERSION__%/$deno_version/g" ./denow.bat
+  sed -i "s/\$__DENO_VERSION__/$deno_version/g" ./denow
 fi
 
 echo "Created wrapper! You can use ./denow to launch Deno."

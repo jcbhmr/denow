@@ -1,6 +1,6 @@
 #!/bin/sh
 set -e
-deno_version="$DENO_VERSION"
+deno_version="$__DENO_VERSION__"
 # https://stackoverflow.com/questions/29832037/how-to-get-script-directory-in-posix-sh
 dir=$(CDPATH='' cd -- "$(dirname -- "$0")" && pwd)
 if [ ! -d "$dir/.deno" ]; then
