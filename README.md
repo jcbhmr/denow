@@ -2,44 +2,59 @@
 
 🦕 Like [`./gradlew`], but for [Deno]
 
-<div align="center">
+<table align=center><td>
 
-![](https://i.imgur.com/Mjwuwyg.png)
+```sh
+./denow --help
+./denow eval 'console.log(42)'
+./denow fmt
+./denow task mytask
+./denow compile --allow-read --allow-net app.ts
+./denow run -A https://examples.deno.land/http-server.ts
+```
 
-</div>
+</table>
 
 🦕 Downloads a pinned version of Deno \
 📂 Caches Deno installation in the `.deno` folder \
 🌟 Creates a `./denow` wrapper script that auto-downloads Deno \
 👤 Users don't need to install `deno` globally
 
-❤️ I'd love any Windows experts to add a `install.ps1` and `./denow.*` for
-Windows support!
-
 ## Installation
 
 ![curl](https://img.shields.io/static/v1?style=for-the-badge&message=curl&color=073551&logo=curl&logoColor=FFFFFF&label=)
 ![sh](https://img.shields.io/static/v1?style=for-the-badge&message=sh&color=4EAA25&logo=GNU+Bash&logoColor=FFFFFF&label=)
-
-Find your existing Deno project, then run `install.sh`. If you're using Windows,
-you can use [Git Bash] to emulate a POSIX shell. 👍
+![PowerShell](https://img.shields.io/static/v1?style=for-the-badge&message=PowerShell&color=5391FE&logo=PowerShell&logoColor=FFFFFF&label=)
 
 ```sh
-curl -fsSL https://deno.land/x/deno_wrapper/install.sh | sh
+curl -fsSL https://deno.land/x/denow/install.sh | sh
 ```
 
-You can add a `vN.N.N` argument to download a specific version. By default we
-use the `Deno.version.deno` version or else the latest Deno release.
+```ps1
+irm https://deno.land/x/denow/install.ps1 | iex
+```
+
+**If you want to install a specific version of Deno** instead of the latest
+version you can use an extra argument to choose a specific version. This is the
+_version_ (`1.38.0`), not the _tag name_ (`v1.38.0`).
 
 ```sh
-curl -fsSL https://deno.land/x/deno_wrapper/install.sh | sh -s 1.30.0
+curl -fsSL https://deno.land/x/denow/install.sh | sh -s 1.38.0
 ```
+
+```ps1
+v="1.38.0"; irm https://deno.land/x/denow/install.ps1 | iex
+```
+
+🛑 If you're looking to install Deno globally [check out the Deno website for an
+installation guide].
 
 ## Usage
 
 ![Terminal](https://img.shields.io/static/v1?style=for-the-badge&message=Terminal&color=4D4D4D&logo=Windows+Terminal&logoColor=FFFFFF&label=)
 ![Linux](https://img.shields.io/static/v1?style=for-the-badge&message=Linux&color=222222&logo=Linux&logoColor=FCC624&label=)
 ![macOS](https://img.shields.io/static/v1?style=for-the-badge&message=macOS&color=000000&logo=macOS&logoColor=FFFFFF&label=)
+![Windows](https://img.shields.io/static/v1?style=for-the-badge&message=Windows&color=0078D4&logo=Windows&logoColor=FFFFFF&label=)
 
 Just use `./denow` as though it were the true `deno` binary! Anyone who clones
 your repo won't need to install deno themselves; the `./denow` will auto-install
@@ -61,7 +76,7 @@ installed to by the wrapper.
 If you want to update the version of Deno that `./denow` downloads and invokes,
 you can go through the install steps (above) again to pin to a different
 version. Be aware that this will **overwrite** the `./denow` file. You can also
-inspect the generated `./deno` file to see what version of Deno they are
+inspect the generated `./denow` file to see what version of Deno they are
 invoking and change it manually.
 
 ### Why?
@@ -89,25 +104,17 @@ systems want to deal with. [GitHub will even block files larger than 100MB]!
 
 ## Development
 
-![Bash](https://img.shields.io/static/v1?style=for-the-badge&message=Bash&color=4EAA25&logo=GNU+Bash&logoColor=FFFFFF&label=)
+![Bash](https://img.shields.io/static/v1?style=for-the-badge&message=Bash&color=FCAF58&logo=GNU+Bash&logoColor=000000&label=)
 ![sh](https://img.shields.io/static/v1?style=for-the-badge&message=sh&color=4EAA25&logo=GNU+Bash&logoColor=FFFFFF&label=)
+![cmd](https://img.shields.io/static/v1?style=for-the-badge&message=cmd&color=000000&logo=GNU+Bash&logoColor=FFFFFF&label=)
 
-Most stuff is in POSIX shell code for max compat with macOS and Linux variants
-that use different `bash`, `ksh`, `fish`, etc. shells.
-
-Make sure you check the Webhooks tab after each release to make sure that Deno
-actually recieved the payload from the Release event!
-
-```sh
-WEBHOOK:
-Payload URL: https://api.deno.land/webhook/gh/deno_wrapper
-Select individual events: "Branch or tag creation"
-```
+Make sure that any changes are roughly the same in the `./denow.bat` and
+`./deno` wrappers as well as the `install.ps1` and `install.sh` installers.
 
 <!-- prettier-ignore-start -->
 [Deno]: https://deno.com/runtime
 [github will even block files larger than 100mb]: https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github
-[Git Bash]: https://gitforwindows.org/
 [`./gradlew`]: https://github.com/gradle/gradle/blob/master/gradlew
 [The Gradle Wrapper]: https://docs.gradle.org/current/userguide/gradle_wrapper.html
+[check out the Deno website for an installation guide]: https://docs.deno.com/runtime/manual/getting_started/installation
 <!-- prettier-ignore-end -->
