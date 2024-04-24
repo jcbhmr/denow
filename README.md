@@ -1,3 +1,9 @@
+![🗄 Archived ⌛](https://github.com/jcbhmr/denow/assets/61068799/5749eef4-a4d5-4ff4-aa6e-12357197c451)
+
+<p align=center>
+  <b>Use <a href="https://www.npmjs.com/package/deno-bin">the official-ish deno-bin npm package</a> if you want to use a project-local version of Deno</b>
+</p>
+
 # Deno wrapper
 
 🦕 Like [`./gradlew`] but for [Deno]
