@@ -1,3 +1,5 @@
+![Unmaintained](https://github.com/jcbhmr/denow/assets/61068799/6312c6de-8112-4bdb-afef-529c6010ed68)
+
 <p align=center>
   <b>Use <a href="https://www.npmjs.com/package/deno-bin">the official-ish deno-bin npm package</a> if you want to use a project-local version of Deno</b>
 </p>
